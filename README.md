@@ -12,8 +12,8 @@ npm run build   # production build (also type-checks)
 
 Copy `.env.example` to `.env.local` and fill in what exists:
 
-- `NEXT_PUBLIC_APP_STORE_URL`, `NEXT_PUBLIC_GOOGLE_PLAY_URL`: once either is set, the CTAs
-  turn into store buttons. Until then the site shows an early-access form.
+- `NEXT_PUBLIC_APP_STORE_URL`, `NEXT_PUBLIC_GOOGLE_PLAY_URL`: override the store listings in
+  `lib/constants.ts`. A store with no listing shows a "Coming soon" badge.
 - `NEXT_PUBLIC_WAITLIST_ENDPOINT`: where that form POSTs `{"email": "..."}` as JSON.
 - `NEXT_PUBLIC_SITE_URL`: the public origin, for canonical URLs and social cards.
 
@@ -30,3 +30,9 @@ code (its `shared/src/commonMain/.../domain/model` package). They all live in
 - `components/sections/`: one file per page section
 - `components/ui/`: shared pieces (Button, TreeIllustration, Island, AppMockup, FloatingLeaves, …)
 - `design-references/`: the reference image the visual direction came from
+
+## Deploying
+
+`.github/workflows/deploy.yml` builds the site and publishes `out/` to GitHub Pages on every
+push to `main`. One-time setup in the repo's **Settings → Pages**: set **Source** to
+**GitHub Actions**, and set the custom domain to `habiora.co` (also kept in `public/CNAME`).

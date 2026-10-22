@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import { House, Info, Leaf, Plus, TreeDeciduous, UserRound } from "lucide-react";
+import { ChartColumn, House, Info, Leaf, Plus, UserRound } from "lucide-react";
 import { Island, type IslandTree } from "./Island";
 import { LogoMark } from "./Logo";
 
@@ -26,8 +26,8 @@ const TREES: IslandTree[] = [
 
 const NAV = [
   { label: "Home", Icon: House },
+  { label: "Growth", Icon: ChartColumn },
   { label: "Habits", Icon: Leaf },
-  { label: "Forest", Icon: TreeDeciduous },
   { label: "Profile", Icon: UserRound },
 ];
 

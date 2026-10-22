@@ -7,8 +7,8 @@ import { HabitatShowcase } from "@/components/sections/HabitatShowcase";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { PhilosophySection } from "@/components/sections/PhilosophySection";
-import { PricingSection } from "@/components/sections/PricingSection";
-import { FAQS, SITE } from "@/lib/constants";
+import { PlansSection } from "@/components/sections/PlansSection";
+import { FAQS, SITE, STORE_LINKS } from "@/lib/constants";
 
 // Structured data describes the app and its FAQ only — no ratings or review counts,
 // because there are none yet.
@@ -19,7 +19,8 @@ const jsonLd = [
     name: SITE.name,
     description: SITE.description,
     applicationCategory: "LifestyleApplication",
-    operatingSystem: "iOS, Android",
+    operatingSystem: "iOS",
+    downloadUrl: STORE_LINKS.appStore ?? undefined,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   },
   {
@@ -39,7 +40,7 @@ export default function Home() {
         <HowItWorksSection />
         <FeaturesSection />
         <HabitatShowcase />
-        <PricingSection />
+        <PlansSection />
         <FAQSection />
         <FinalCTASection />
       </main>

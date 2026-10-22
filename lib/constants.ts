@@ -6,21 +6,23 @@ export const SITE = {
   tagline: "Every habit you keep becomes a tree.",
   description:
     "A mindful habit tracker where every small step becomes a tree. Plant a habit, show up for it, and watch your own little forest grow.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://habiora.co",
 };
 
-/** Store listings. Null until they are live — the site never links to a listing that doesn't exist. */
+/**
+ * Store listings. A null listing shows as "Coming soon" instead of a link — the site never
+ * points at a listing that doesn't exist.
+ */
 export const STORE_LINKS = {
-  appStore: process.env.NEXT_PUBLIC_APP_STORE_URL || null,
+  appStore: process.env.NEXT_PUBLIC_APP_STORE_URL || "https://apps.apple.com/us/app/habit-tracker-habiora/id6817898705",
   googlePlay: process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL || null,
 };
 
-export const HAS_STORE_LINKS = Boolean(STORE_LINKS.appStore || STORE_LINKS.googlePlay);
-
 export const WAITLIST_ENDPOINT = process.env.NEXT_PUBLIC_WAITLIST_ENDPOINT || null;
 
-/** Where every "get the app" button points: the stores once live, the early-access form until then. */
-export const PRIMARY_CTA_HREF = HAS_STORE_LINKS ? "#get-the-app" : "#early-access";
+/** The early-access section, and the id of the email field the top bar's button jumps to. */
+export const EARLY_ACCESS_ID = "early-access";
+export const WAITLIST_INPUT_ID = "waitlist-email";
 
 export const NAV_LINKS = [
   { label: "How It Works", href: "#how-it-works" },

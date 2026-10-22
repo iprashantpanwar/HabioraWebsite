@@ -1,7 +1,6 @@
-import { ArrowRight, Sprout } from "lucide-react";
-import { HAS_STORE_LINKS, PRIMARY_CTA_HREF } from "@/lib/constants";
-import { ButtonLink } from "@/components/ui/Button";
+import { ArrowDown, Sprout } from "lucide-react";
 import { FloatingLeaves } from "@/components/ui/FloatingLeaves";
+import { StoreButtons } from "@/components/ui/GetTheApp";
 import { HeroPhone } from "@/components/ui/HeroPhone";
 import { Bushes, Cloud, Hills } from "@/components/ui/Landscape";
 import { Reveal } from "@/components/ui/Reveal";
@@ -44,21 +43,20 @@ export function HeroSection() {
             </p>
           </Reveal>
 
-          <Reveal delay={0.24} className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href={PRIMARY_CTA_HREF} size="lg">
-              Start Growing
-              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden />
-            </ButtonLink>
-            <ButtonLink href="#how-it-works" variant="secondary" size="lg">
-              Explore Habiora
-            </ButtonLink>
+          <Reveal delay={0.24} className="mt-9">
+            <StoreButtons />
           </Reveal>
 
           <Reveal delay={0.32}>
-            <p className="mt-7 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-muted">
-              <span className="h-px w-8 bg-sage" aria-hidden />
-              Small steps. Real growth.
-              {!HAS_STORE_LINKS && <span className="w-full pl-10 text-muted/80 sm:w-auto sm:pl-0">· Coming soon to iPhone and Android</span>}
+            <p className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium text-muted">
+              <span className="flex items-center gap-2">
+                <span className="h-px w-8 bg-sage" aria-hidden />
+                Small steps. Real growth.
+              </span>
+              <a href="#how-it-works" className="group inline-flex items-center gap-1.5 rounded-full font-semibold text-forest transition-colors hover:text-forest-deep">
+                Explore Habiora
+                <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" aria-hidden />
+              </a>
             </p>
           </Reveal>
         </div>

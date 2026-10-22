@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { FREE_TREE_LIMIT, PRIMARY_CTA_HREF } from "@/lib/constants";
+import { FREE_TREE_LIMIT, STORE_LINKS } from "@/lib/constants";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -9,13 +9,13 @@ import { TreeIllustration } from "@/components/ui/TreeIllustration";
 // the store, which shows them in the visitor's own currency.
 const SHARED = ["Streaks, milestones and growth charts", "Every tree species, icon and category", "Rest a tree and bring it back"];
 
-export function PricingSection() {
+export function PlansSection() {
   return (
-    <section id="pricing" aria-labelledby="pricing-title" className="bg-cream py-24 sm:py-32">
+    <section id="plans" aria-labelledby="plans-title" className="bg-cream py-24 sm:py-32">
       <div className="container-page">
         <SectionHeading
-          id="pricing-title"
-          eyebrow="Pricing"
+          id="plans-title"
+          eyebrow="Plans"
           title="Free to grow. Premium to grow it all."
           description="Start with a forest of your own at no cost. Go Premium when you'd like room for every habit."
         />
@@ -45,9 +45,15 @@ export function PricingSection() {
               ))}
             </ul>
             <div className="mt-auto pt-10">
-              <ButtonLink href={PRIMARY_CTA_HREF} variant="secondary" size="lg" className="w-full">
-                Start growing
-              </ButtonLink>
+              {STORE_LINKS.appStore ? (
+                <ButtonLink href={STORE_LINKS.appStore} external variant="secondary" size="lg" className="w-full">
+                  Start growing on iPhone
+                </ButtonLink>
+              ) : (
+                <ButtonLink href="#early-access" variant="secondary" size="lg" className="w-full">
+                  Start growing
+                </ButtonLink>
+              )}
             </div>
           </Reveal>
 

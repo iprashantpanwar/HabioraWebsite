@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
-import { STORE_LINKS, WAITLIST_ENDPOINT } from "@/lib/constants";
+import { STORE_LINKS, WAITLIST_ENDPOINT, WAITLIST_INPUT_ID } from "@/lib/constants";
 import { buttonClasses } from "./Button";
 
 function AppleGlyph({ className }: { className?: string }) {
@@ -24,22 +24,66 @@ function PlayGlyph({ className }: { className?: string }) {
   );
 }
 
-/** Store buttons for whichever listings are configured. Renders nothing until one is. */
-export function StoreButtons({ className = "" }: { className?: string }) {
-  if (!STORE_LINKS.appStore && !STORE_LINKS.googlePlay) return null;
+function StoreBadge({ glyph, kicker, store }: { glyph: React.ReactNode; kicker: string; store: string }) {
   return (
-    <div className={`flex flex-wrap gap-3 ${className}`}>
-      {STORE_LINKS.appStore && (
-        <a href={STORE_LINKS.appStore} target="_blank" rel="noopener noreferrer" className={buttonClasses("primary", "lg")}>
-          <AppleGlyph className="h-5 w-5" /> App Store
+    <>
+      {glyph}
+      <span className="flex flex-col items-start leading-none">
+        <span className="text-[0.66rem] font-medium tracking-wide whitespace-nowrap opacity-80">{kicker}</span>
+        <span className="mt-1 font-display text-[1.05rem] font-semibold whitespace-nowrap sm:text-[1.15rem]">{store}</span>
+      </span>
+    </>
+  );
+}
+
+const badgeBase = "group inline-flex h-14 items-center gap-2.5 rounded-2xl px-4 text-left sm:gap-3 sm:px-5 transition-all duration-300 ease-out";
+
+/**
+ * The App Store and Google Play buttons. A store without a listing yet shows as a quiet
+ * "Coming soon" badge rather than a link.
+ */
+export function StoreButtons({ className = "" }: { className?: string }) {
+  return (
+    <div className={`flex flex-wrap gap-2.5 sm:gap-3 ${className}`}>
+      {STORE_LINKS.appStore ? (
+        <a
+          href={STORE_LINKS.appStore}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Download Habiora on the App Store"
+          className={`${badgeBase} bg-forest-deep text-ivory shadow-[0_10px_24px_-10px_rgb(22_61_43/0.7)] hover:-translate-y-0.5 hover:bg-forest hover:shadow-[0_16px_30px_-12px_rgb(22_61_43/0.7)]`}
+        >
+          <StoreBadge glyph={<AppleGlyph className="h-7 w-7" />} kicker="Download on the" store="App Store" />
         </a>
+      ) : (
+        <ComingSoon glyph={<AppleGlyph className="h-7 w-7" />} store="App Store" />
       )}
-      {STORE_LINKS.googlePlay && (
-        <a href={STORE_LINKS.googlePlay} target="_blank" rel="noopener noreferrer" className={buttonClasses("primary", "lg")}>
-          <PlayGlyph className="h-5 w-5" /> Google Play
+      {STORE_LINKS.googlePlay ? (
+        <a
+          href={STORE_LINKS.googlePlay}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Get Habiora on Google Play"
+          className={`${badgeBase} bg-forest-deep text-ivory shadow-[0_10px_24px_-10px_rgb(22_61_43/0.7)] hover:-translate-y-0.5 hover:bg-forest`}
+        >
+          <StoreBadge glyph={<PlayGlyph className="h-6 w-6" />} kicker="Get it on" store="Google Play" />
         </a>
+      ) : (
+        <ComingSoon glyph={<PlayGlyph className="h-6 w-6" />} store="Google Play" />
       )}
     </div>
+  );
+}
+
+function ComingSoon({ glyph, store }: { glyph: React.ReactNode; store: string }) {
+  return (
+    <span
+      role="img"
+      aria-label={`${store}: coming soon`}
+      className={`${badgeBase} cursor-default border border-dashed border-sage bg-ivory/70 text-forest-deep/80 backdrop-blur`}
+    >
+      <StoreBadge glyph={glyph} kicker="Coming soon to" store={store} />
+    </span>
   );
 }
 
@@ -67,7 +111,7 @@ export function WaitlistForm({ className = "" }: { className?: string }) {
       });
       if (!response.ok) throw new Error(String(response.status));
       setStatus("done");
-      setMessage("You're on the list. We'll write when your seed is ready to plant.");
+      setMessage("You're on the list. We'll write the day Habiora lands on Android.");
       setEmail("");
     } catch {
       setStatus("error");
@@ -88,12 +132,12 @@ export function WaitlistForm({ className = "" }: { className?: string }) {
 
   return (
     <form onSubmit={onSubmit} className={className} noValidate={false}>
-      <div className="flex flex-col gap-3 rounded-[1.75rem] border border-line bg-ivory p-2 shadow-soft sm:flex-row sm:rounded-full">
-        <label htmlFor="waitlist-email" className="sr-only">
+      <div className="flex flex-col gap-3 rounded-[1.75rem] border border-line bg-ivory p-2 shadow-soft transition-shadow focus-within:border-leaf focus-within:ring-4 focus-within:ring-sage/50 sm:flex-row sm:rounded-full">
+        <label htmlFor={WAITLIST_INPUT_ID} className="sr-only">
           Email address
         </label>
         <input
-          id="waitlist-email"
+          id={WAITLIST_INPUT_ID}
           type="email"
           required
           autoComplete="email"
@@ -109,7 +153,7 @@ export function WaitlistForm({ className = "" }: { className?: string }) {
         </button>
       </div>
       <p role="status" aria-live="polite" className={`mt-3 min-h-5 px-5 text-sm ${status === "error" ? "text-[#a3542c]" : "text-muted"}`}>
-        {status === "error" ? message : "One email when Habiora is ready. Nothing else."}
+        {status === "error" ? message : "One email when Habiora lands on Android. Nothing else."}
       </p>
     </form>
   );

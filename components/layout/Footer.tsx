@@ -21,8 +21,8 @@ export function Footer() {
               </li>
             ))}
             <li>
-              <a href="#pricing" className="rounded transition-colors hover:text-gold-bright">
-                Pricing
+              <a href="#plans" className="rounded transition-colors hover:text-gold-bright">
+                Plans
               </a>
             </li>
           </ul>

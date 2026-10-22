@@ -1,4 +1,4 @@
-import { HAS_STORE_LINKS } from "@/lib/constants";
+import { EARLY_ACCESS_ID } from "@/lib/constants";
 import { FloatingLeaves } from "@/components/ui/FloatingLeaves";
 import { StoreButtons, WaitlistForm } from "@/components/ui/GetTheApp";
 import { Island } from "@/components/ui/Island";
@@ -8,7 +8,7 @@ import { Reveal } from "@/components/ui/Reveal";
 export function FinalCTASection() {
   return (
     <section
-      id={HAS_STORE_LINKS ? "get-the-app" : "early-access"}
+      id={EARLY_ACCESS_ID}
       aria-labelledby="cta-title"
       className="relative isolate overflow-hidden bg-[radial-gradient(80%_70%_at_50%_0%,#fff6d6_0%,#f6f3e3_50%,#eef3e2_100%)] pt-24 sm:pt-32"
     >
@@ -31,13 +31,17 @@ export function FinalCTASection() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
-            {HAS_STORE_LINKS
-              ? "Habiora is free to download. Your little world is one small step away."
-              : "Habiora is almost ready. Leave your email and we'll let you know the day it's ready to plant."}
+            Habiora is free to download on iPhone. Your little world is one small step away.
           </p>
         </Reveal>
-        <Reveal delay={0.18} className="mx-auto mt-10 flex max-w-xl justify-center">
-          {HAS_STORE_LINKS ? <StoreButtons className="justify-center" /> : <WaitlistForm className="w-full" />}
+        <Reveal delay={0.18} className="mt-10 flex justify-center">
+          <StoreButtons className="justify-center" />
+        </Reveal>
+
+        <Reveal delay={0.24} className="mx-auto mt-14 max-w-xl rounded-[2rem] border border-line bg-ivory/70 p-6 text-left shadow-soft backdrop-blur sm:p-8">
+          <h3 className="text-2xl font-semibold">On Android? Get early access.</h3>
+          <p className="mt-2 text-muted">Habiora is coming to Google Play. Leave your email and we&apos;ll tell you the day it lands.</p>
+          <WaitlistForm className="mt-5" />
         </Reveal>
       </div>
 
