@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f8f5ea;
+  --color-ivory: #fffdf6;
+  --color-forest: #204f38;
+  --color-forest-deep: #163d2b;
+  --color-leaf: #83b982;
+  --color-sage: #b9d4a9;
+  --color-mint: #e8f0de;
+  /* Text-safe amber (≥3:1 on cream at display sizes); the brighter one is for fills. */
+  --color-gold: #c4841d;
+  --color-gold-bright: #e7b84d;
+  --color-gold-soft: #f6e2a8;
+  --color-soil: #8b6240;
+  --color-ink: #24372b;
+  --color-muted: #5f6f61;
+  --color-line: #dde5d5;
+  --color-blossom: #e9a3c3;
+
+  --font-display: var(--font-fredoka), ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 1px 2px rgb(32 79 56 / 0.05), 0 14px 34px -16px rgb(32 79 56 / 0.22);
+  --shadow-lift: 0 40px 80px -30px rgb(22 61 43 / 0.45), 0 18px 36px -18px rgb(22 61 43 / 0.25);
+
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-drift: drift var(--drift-duration, 16s) linear infinite;
+  --animate-sway: sway 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* A leaf crossing the scene: it drifts sideways, falls a little and turns as it goes. */
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(var(--leaf-rotate, 0deg));
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--leaf-opacity, 0.9);
+  }
+  50% {
+    transform: translate3d(var(--leaf-dx-mid, -40px), var(--leaf-dy-mid, 30px), 0)
+      rotate(calc(var(--leaf-rotate, 0deg) + 40deg));
+  }
+  90% {
+    opacity: var(--leaf-opacity, 0.9);
+  }
+  100% {
+    transform: translate3d(var(--leaf-dx, -90px), var(--leaf-dy, 90px), 0)
+      rotate(calc(var(--leaf-rotate, 0deg) + 90deg));
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-1.5deg);
+  }
+  50% {
+    transform: rotate(1.5deg);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--color-forest-deep);
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-gold-soft);
+    color: var(--color-forest-deep);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-gold-bright);
+    outline-offset: 3px;
+    border-radius: 10px;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .text-amber-gradient {
+    background: linear-gradient(100deg, #d29426 0%, #c4841d 55%, #b9791a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.13 0 0 0 0 0.3 0 0 0 0 0.2 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Leaves would otherwise freeze mid-air, invisible at their first keyframe. */
+  .leaf-drift {
+    animation: none !important;
+    opacity: var(--leaf-opacity, 0.9) !important;
+  }
+}
