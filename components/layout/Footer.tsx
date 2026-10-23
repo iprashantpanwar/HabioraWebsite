@@ -31,7 +31,13 @@ export function Footer() {
       <div className="border-t border-ivory/10">
         <div className="container-page flex flex-col gap-2 py-6 text-sm text-ivory/60 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Habiora. All rights reserved.</p>
-          <p>Small steps. Real growth.</p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            {/* A standalone page in public/, served as-is rather than through the app. */}
+            <a href="/privacy-policy.html" className="rounded transition-colors hover:text-gold-bright">
+              Privacy Policy
+            </a>
+            <p>Small steps. Real growth.</p>
+          </div>
         </div>
       </div>
     </footer>

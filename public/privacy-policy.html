@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - Habiora</title>
+  <style>
+    :root {
+      --bg: #f7faf7;
+      --surface: #ffffff;
+      --text: #243b2d;
+      --muted: #66756b;
+      --accent: #4f8a5b;
+      --border: #dfe9df;
+      --soft: #edf5ed;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 22px 80px;
+    }
+    header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 34px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 30px rgba(36, 59, 45, 0.05);
+    }
+    h1, h2, h3 { line-height: 1.25; color: var(--text); }
+    h1 { margin: 0 0 10px; font-size: clamp(30px, 5vw, 44px); text-decoration: none; }
+    h2 {
+      margin-top: 42px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: 25px;
+    }
+    h3 { margin-top: 28px; font-size: 19px; }
+    p, li { color: var(--muted); }
+    .updated { color: var(--muted); margin: 0; }
+    .intro {
+      font-size: 18px;
+      color: var(--text);
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+    .summary {
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 26px;
+    }
+    a { color: var(--accent); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      background: var(--surface);
+    }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 13px 14px;
+      border: 1px solid var(--border);
+    }
+    th { background: var(--soft); color: var(--text); }
+    code {
+      background: var(--soft);
+      padding: 2px 6px;
+      border-radius: 5px;
+    }
+    footer {
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 24px 14px 50px; }
+      header, .card { padding: 22px; }
+      h2 { font-size: 22px; }
+      table { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Privacy Policy</h1>
+      <p class="updated"><strong>Last updated:</strong> September 14, 2026</p>
+      <p class="intro">
+        This Privacy Policy for Habiora ("we," "us," or "our") explains how and why we
+        may access, collect, store, use, and share your personal information when you
+        use our services ("Services"), including the Habiora mobile application.
+      </p>
+      <p>
+        Habiora is a nature-themed habit-tracking application that helps users build
+        positive routines, track progress, and grow a personal in-app forest.
+      </p>
+      <p>
+        If you do not agree with this Privacy Policy, please do not use our Services.
+        If you have questions or concerns, contact us at
+        <a href="mailto:hello@habiora.co">hello@habiora.co</a>.
+      </p>
+    </header>
+
+    <section class="card">
+      <h2>Summary of Key Points</h2>
+      <div class="summary">
+        <ul>
+          <li>We may collect account details, including your email address and information received through social login providers.</li>
+          <li>We may collect habit names, schedules, completion records, streaks, forest progress, and other information you choose to enter.</li>
+          <li>We use Firebase services for authentication, storage, analytics, crash reporting, and app infrastructure where enabled.</li>
+          <li>We use RevenueCat and the relevant payment providers to manage subscriptions, purchases, and free trials.</li>
+          <li>We do not sell your personal information.</li>
+          <li>We do not knowingly collect or market to children under 18, or the equivalent age required by law in your jurisdiction.</li>
+          <li>You may contact us to request access to, correction of, or deletion of your personal information.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Table of Contents</h2>
+      <ol>
+        <li><a href="#collect">What Information Do We Collect?</a></li>
+        <li><a href="#process">How Do We Process Your Information?</a></li>
+        <li><a href="#legal">What Legal Bases Do We Rely On?</a></li>
+        <li><a href="#share">When and With Whom Do We Share Your Information?</a></li>
+        <li><a href="#third-party">What Is Our Stance on Third-Party Services?</a></li>
+        <li><a href="#tracking">Do We Use Cookies and Tracking Technologies?</a></li>
+        <li><a href="#social">How Do We Handle Social Logins?</a></li>
+        <li><a href="#retention">How Long Do We Keep Your Information?</a></li>
+        <li><a href="#security">How Do We Keep Your Information Safe?</a></li>
+        <li><a href="#minors">Do We Collect Information from Minors?</a></li>
+        <li><a href="#rights">What Are Your Privacy Rights?</a></li>
+        <li><a href="#dnt">Controls for Do-Not-Track Features</a></li>
+        <li><a href="#us-rights">United States Privacy Rights</a></li>
+        <li><a href="#updates">Do We Make Updates to This Notice?</a></li>
+        <li><a href="#contact">How Can You Contact Us?</a></li>
+        <li><a href="#delete">How Can You Review, Update, or Delete Your Data?</a></li>
+      </ol>
+    </section>
+
+    <section class="card" id="collect">
+      <h2>1. What Information Do We Collect?</h2>
+
+      <h3>Personal Information You Disclose to Us</h3>
+      <p>
+        We collect personal information that you voluntarily provide when you register
+        for an account, use Habiora, subscribe to a plan, participate in app activities,
+        or contact us.
+      </p>
+
+      <h3>Account Information</h3>
+      <ul>
+        <li>Email address.</li>
+        <li>Password or authentication credentials, where applicable.</li>
+        <li>Display name or username, if you choose to provide one.</li>
+        <li>Information received from a social login provider, if you choose to use one.</li>
+      </ul>
+
+      <h3>Habit and Application Data</h3>
+      <p>Depending on the features you use, we may collect:</p>
+      <ul>
+        <li>Habit names, descriptions, goals, and schedules.</li>
+        <li>Habit completion records, streaks, statistics, and progress.</li>
+        <li>Forest, tree, achievement, and customization data.</li>
+        <li>Preferences and settings.</li>
+        <li>Push-notification preferences or device notification tokens, where required.</li>
+      </ul>
+
+      <h3>Payment Data</h3>
+      <p>
+        If you purchase Habiora Pro or participate in a free trial, we may process
+        information necessary to manage your subscription, purchase history, plan,
+        subscription status, and trial eligibility.
+      </p>
+      <p>
+        Payment data is handled by RevenueCat and the relevant payment providers,
+        including Google Play Billing and Apple App Store payment services. We do not
+        directly collect or store your complete payment card details.
+      </p>
+      <p>
+        You can review their privacy policies here:
+        <a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener">RevenueCat</a>,
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a>,
+        and
+        <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple</a>.
+      </p>
+
+      <h3>Information Automatically Collected</h3>
+      <p>
+        We may automatically collect technical, diagnostic, and usage information when
+        you use the Services. This may include:
+      </p>
+      <ul>
+        <li>IP address and general location information, such as country.</li>
+        <li>Device type, model, operating system, and app version.</li>
+        <li>Device and app identifiers.</li>
+        <li>Language and configuration information.</li>
+        <li>App interaction and usage information.</li>
+        <li>Crash reports, error logs, and diagnostic information.</li>
+        <li>Date and time stamps associated with your use of the Services.</li>
+      </ul>
+
+      <p>
+        We do not intentionally collect precise GPS location data for habit tracking.
+        Please do not enter passwords, payment card details, medical diagnoses, or other
+        highly sensitive information into habit names or descriptions.
+      </p>
+    </section>
+
+    <section class="card" id="process">
+      <h2>2. How Do We Process Your Information?</h2>
+      <p>We may process your information to:</p>
+      <ul>
+        <li>Facilitate account creation, authentication, and account management.</li>
+        <li>Provide, maintain, and personalize Habiora.</li>
+        <li>Save and synchronize your habits, progress, and forest data.</li>
+        <li>Manage subscriptions, purchases, and free trials.</li>
+        <li>Send reminders, service messages, and administrative information.</li>
+        <li>Respond to questions and provide customer support.</li>
+        <li>Understand usage trends and improve the app.</li>
+        <li>Diagnose crashes, bugs, and technical problems.</li>
+        <li>Protect the Services against fraud, misuse, and security threats.</li>
+        <li>Comply with applicable legal obligations.</li>
+      </ul>
+      <p>
+        Habiora is a productivity and habit-tracking tool. It does not provide medical
+        diagnoses, medical treatment, or professional medical advice.
+      </p>
+    </section>
+
+    <section class="card" id="legal">
+      <h2>3. What Legal Bases Do We Rely On to Process Your Information?</h2>
+      <p>
+        Depending on your location and applicable law, we may process your information
+        on the following legal bases:
+      </p>
+      <ul>
+        <li><strong>Consent:</strong> Where you have given permission for a specific purpose.</li>
+        <li><strong>Performance of a contract:</strong> To provide the Services you request.</li>
+        <li><strong>Legitimate interests:</strong> To operate, secure, troubleshoot, and improve Habiora.</li>
+        <li><strong>Legal obligations:</strong> To comply with applicable laws and lawful requests.</li>
+        <li><strong>Vital interests:</strong> Where necessary to protect the safety of a person.</li>
+      </ul>
+      <p>
+        Where processing is based on consent, you may withdraw that consent at any time.
+        Withdrawal does not affect processing that occurred before withdrawal or
+        processing based on another lawful basis.
+      </p>
+    </section>
+
+    <section class="card" id="share">
+      <h2>4. When and With Whom Do We Share Your Information?</h2>
+      <p>
+        We do not sell your personal information. We may share information with vendors,
+        contractors, and service providers that process information on our behalf and
+        help us operate Habiora.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Service or Provider</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Firebase Authentication</td><td>Account registration, login, and authentication.</td></tr>
+          <tr><td>Google Sign-In and other supported social login providers</td><td>Account registration and authentication when you choose social login.</td></tr>
+          <tr><td>Cloud Firestore</td><td>Storing account, habit, and progress data.</td></tr>
+          <tr><td>Firebase Cloud Storage</td><td>Storing files or app data, if enabled.</td></tr>
+          <tr><td>Google Analytics for Firebase</td><td>Understanding app usage and improving features.</td></tr>
+          <tr><td>Firebase Crashlytics</td><td>Crash reporting, diagnostics, and technical troubleshooting.</td></tr>
+          <tr><td>RevenueCat</td><td>Subscription management, entitlement status, and purchase information.</td></tr>
+          <tr><td>Google Play Billing</td><td>Android purchases and subscriptions.</td></tr>
+          <tr><td>Apple App Store / StoreKit</td><td>iOS purchases and subscriptions.</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        We may also disclose information in connection with a merger, acquisition,
+        financing, sale of assets, legal process, fraud prevention, or the protection
+        of our rights, users, and Services.
+      </p>
+    </section>
+
+    <section class="card" id="third-party">
+      <h2>5. What Is Our Stance on Third-Party Services?</h2>
+      <p>
+        Habiora may link to third-party websites, services, or applications. We are not
+        responsible for the privacy, security, content, or practices of third parties
+        that we do not control.
+      </p>
+      <p>
+        The inclusion of a link does not imply endorsement. We encourage you to review
+        the privacy policies of any third-party service you use.
+      </p>
+    </section>
+
+    <section class="card" id="tracking">
+      <h2>6. Do We Use Cookies and Other Tracking Technologies?</h2>
+      <p>
+        The Habiora mobile application may use software development kits and similar
+        technologies provided by Firebase, RevenueCat, and other service providers.
+        These technologies may collect technical, diagnostic, and usage information
+        needed for authentication, analytics, crash reporting, subscription management,
+        security, and app functionality.
+      </p>
+      <p>
+        We do not use your habit names or completion records to serve targeted
+        advertisements. If we introduce advertising or additional tracking technologies,
+        we will update this Privacy Policy and provide any notices or choices required
+        by applicable law.
+      </p>
+      <h3>Google Analytics for Firebase</h3>
+      <p>
+        Where enabled, Google Analytics for Firebase helps us understand how users
+        interact with Habiora. More information is available in
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.
+      </p>
+    </section>
+
+    <section class="card" id="social">
+      <h2>7. How Do We Handle Your Social Logins?</h2>
+      <p>
+        Habiora may allow you to register or log in using a third-party social account,
+        such as Google or another supported provider. If you choose this option, we may
+        receive certain profile information from that provider.
+      </p>
+      <p>
+        Depending on the provider and your settings, this information may include your
+        name, email address, profile picture, or another identifier used to create and
+        manage your Habiora account.
+      </p>
+      <p>
+        We use information received through social login only for the purposes described
+        in this Privacy Policy or explained to you when you use the login option. We do
+        not control how the social login provider uses your information, so we recommend
+        reviewing that provider's privacy policy.
+      </p>
+    </section>
+
+    <section class="card" id="retention">
+      <h2>8. How Long Do We Keep Your Information?</h2>
+      <p>
+        We keep your information for as long as necessary to provide Habiora, maintain
+        your account, provide support, comply with legal obligations, resolve disputes,
+        and enforce our agreements.
+      </p>
+      <p>
+        When you delete your account, we will delete or anonymize your information from
+        active systems within a reasonable period, subject to legal requirements,
+        legitimate retention needs, and backup limitations.
+      </p>
+      <p>
+        Information stored in backup archives may remain isolated from further processing
+        until it is securely deleted or overwritten.
+      </p>
+    </section>
+
+    <section class="card" id="security">
+      <h2>9. How Do We Keep Your Information Safe?</h2>
+      <p>
+        We use reasonable technical and organizational measures designed to protect your
+        information from unauthorized access, loss, misuse, or disclosure. These may
+        include access controls, secure data transmission, and protections for stored
+        information.
+      </p>
+      <p>
+        However, no method of transmission over the Internet or electronic storage is
+        completely secure. We cannot guarantee that unauthorized third parties will
+        never defeat our security measures.
+      </p>
+    </section>
+
+    <section class="card" id="minors">
+      <h2>10. Do We Collect Information from Minors?</h2>
+      <p>
+        We do not knowingly collect data from or market to children under 18 years of
+        age, or the equivalent age as specified by law in your jurisdiction.
+      </p>
+      <p>
+        By using the Services, you represent that you are at least 18 years old, or the
+        equivalent age required by law in your jurisdiction, or that you are the parent
+        or guardian of a minor and consent to that minor's use of the Services.
+      </p>
+      <p>
+        If we learn that personal information from a person under 18 has been collected,
+        we will deactivate the account and take reasonable measures to promptly delete
+        the information from our records. If you become aware of information we may have
+        collected from a child, contact us at
+        <a href="mailto:hello@habiora.co">hello@habiora.co</a>.
+      </p>
+    </section>
+
+    <section class="card" id="rights">
+      <h2>11. What Are Your Privacy Rights?</h2>
+      <p>
+        Depending on your location, you may have rights regarding your personal
+        information, including the right to:
+      </p>
+      <ul>
+        <li>Request access to your personal information.</li>
+        <li>Request correction of inaccurate information.</li>
+        <li>Request deletion of your information.</li>
+        <li>Request a copy of information you provided to us.</li>
+        <li>Restrict or object to certain processing.</li>
+        <li>Withdraw consent where processing is based on consent.</li>
+        <li>Request data portability where applicable.</li>
+        <li>Complain to a relevant data protection authority.</li>
+      </ul>
+      <p>
+        We will consider and act upon requests in accordance with applicable data
+        protection laws. We may need to verify your identity before fulfilling a request.
+      </p>
+    </section>
+
+    <section class="card" id="dnt">
+      <h2>12. Controls for Do-Not-Track Features</h2>
+      <p>
+        Some browsers and operating systems include Do-Not-Track settings. Because
+        there is currently no universally accepted standard for responding to these
+        signals, Habiora does not currently respond to browser Do-Not-Track signals.
+        If a recognized standard is adopted that we must follow, we will update this
+        Privacy Policy.
+      </p>
+    </section>
+
+    <section class="card" id="us-rights">
+      <h2>13. United States Privacy Rights</h2>
+      <p>
+        Depending on the state where you live, you may have rights to know whether we
+        process your personal information, access it, correct inaccuracies, request
+        deletion, obtain a copy, and opt out of certain processing activities.
+      </p>
+      <p>
+        We do not sell personal information or share it for cross-context behavioral
+        advertising. We may disclose information to service providers for business
+        purposes, such as authentication, hosting, analytics, crash reporting, and
+        subscription management.
+      </p>
+      <p>
+        To exercise applicable rights, contact us at
+        <a href="mailto:hello@habiora.co">hello@habiora.co</a>. We will respond as
+        required by applicable law.
+      </p>
+    </section>
+
+    <section class="card" id="updates">
+      <h2>14. Do We Make Updates to This Notice?</h2>
+      <p>
+        We may update this Privacy Policy from time to time. When we do, we will update
+        the "Last updated" date at the top of this policy.
+      </p>
+      <p>
+        If we make material changes to how we collect or use personal information, we
+        may provide additional notice through the app or another appropriate method.
+      </p>
+    </section>
+
+    <section class="card" id="contact">
+      <h2>15. How Can You Contact Us About This Notice?</h2>
+      <p>
+        If you have questions, concerns, or requests about this Privacy Policy or how
+        Habiora handles your information, contact us:
+      </p>
+      <p>
+        <strong>Habiora Team</strong><br />
+        Email: <a href="mailto:hello@habiora.co">hello@habiora.co</a>
+      </p>
+    </section>
+
+    <section class="card" id="delete">
+      <h2>16. How Can You Review, Update, or Delete the Data We Collect from You?</h2>
+      <p>
+        You may request access to, correction of, or deletion of your account information
+        and associated habit data by emailing
+        <a href="mailto:hello@habiora.co">hello@habiora.co</a>.
+      </p>
+      <p>
+        Please include the email address associated with your Habiora account so we can
+        identify the correct account. Deleting your account may result in the loss of
+        access to your saved habits, forest, achievements, and progress.
+      </p>
+      <p>
+        We may retain limited information where necessary to prevent fraud, troubleshoot
+        problems, assist with investigations, enforce our legal terms, or comply with
+        applicable legal requirements.
+      </p>
+    </section>
+
+    <footer>
+      © 2026 Habiora. All rights reserved.
+    </footer>
+  </main>
+</body>
+</html>
