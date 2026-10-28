@@ -19,7 +19,7 @@ const jsonLd = [
     name: SITE.name,
     description: SITE.description,
     applicationCategory: "LifestyleApplication",
-    operatingSystem: "iOS",
+    operatingSystem: "iOS, Android",
     downloadUrl: STORE_LINKS.appStore ?? undefined,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   },
