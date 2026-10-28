@@ -3,31 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
-import { EARLY_ACCESS_ID, NAV_LINKS, WAITLIST_INPUT_ID } from "@/lib/constants";
-import { ButtonLink } from "@/components/ui/Button";
+import { NAV_LINKS } from "@/lib/constants";
 import { Logo } from "@/components/ui/Logo";
-
-const CTA_LABEL = "Get Early Access";
-const CTA_HREF = `#${EARLY_ACCESS_ID}`;
-
-/**
- * Brings the early-access email field to the middle of the screen and puts the cursor in it,
- * rather than landing on the top of the section with the field somewhere below. `defer`
- * waits a frame, for when the mobile menu still has page scrolling locked.
- */
-function goToWaitlist(event: React.MouseEvent<HTMLAnchorElement>, defer = false) {
-  const input = document.getElementById(WAITLIST_INPUT_ID);
-  if (!input) return; // fall back to the plain #early-access jump
-  event.preventDefault();
-  const go = () => {
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    input.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
-    input.focus({ preventScroll: true });
-    history.replaceState(null, "", CTA_HREF);
-  };
-  if (defer) setTimeout(go, 60);
-  else go();
-}
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -89,12 +66,7 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
-          <span className="hidden sm:block">
-            <ButtonLink href={CTA_HREF} onClick={goToWaitlist}>
-              {CTA_LABEL}
-            </ButtonLink>
-          </span>
+        <div className="flex items-center gap-2 md:hidden">
           <button
             ref={toggleRef}
             type="button"
@@ -132,19 +104,6 @@ export function Navbar() {
                   </a>
                 </li>
               ))}
-              <li className="mt-3">
-                <ButtonLink
-                  href={CTA_HREF}
-                  size="lg"
-                  className="w-full"
-                  onClick={(e) => {
-                    setOpen(false);
-                    goToWaitlist(e, true);
-                  }}
-                >
-                  {CTA_LABEL}
-                </ButtonLink>
-              </li>
             </ul>
           </motion.div>
         )}

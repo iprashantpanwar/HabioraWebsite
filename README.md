@@ -14,7 +14,6 @@ Copy `.env.example` to `.env.local` and fill in what exists:
 
 - `NEXT_PUBLIC_APP_STORE_URL`, `NEXT_PUBLIC_GOOGLE_PLAY_URL`: override the store listings in
   `lib/constants.ts`. A store with no listing shows a "Coming soon" badge.
-- `NEXT_PUBLIC_WAITLIST_ENDPOINT`: where that form POSTs `{"email": "..."}` as JSON.
 - `NEXT_PUBLIC_SITE_URL`: the public origin, for canonical URLs and social cards.
 
 ## Facts on the page

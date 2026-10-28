@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { FREE_TREE_LIMIT, STORE_LINKS } from "@/lib/constants";
+import { FREE_TREE_LIMIT } from "@/lib/constants";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -45,15 +45,10 @@ export function PlansSection() {
               ))}
             </ul>
             <div className="mt-auto pt-10">
-              {STORE_LINKS.appStore ? (
-                <ButtonLink href={STORE_LINKS.appStore} external variant="secondary" size="lg" className="w-full">
-                  Start growing on iPhone
-                </ButtonLink>
-              ) : (
-                <ButtonLink href="#early-access" variant="secondary" size="lg" className="w-full">
-                  Start growing
-                </ButtonLink>
-              )}
+              {/* Both stores are a tap away in the closing section. */}
+              <ButtonLink href="#get-the-app" variant="secondary" size="lg" className="w-full">
+                Start growing
+              </ButtonLink>
             </div>
           </Reveal>
 

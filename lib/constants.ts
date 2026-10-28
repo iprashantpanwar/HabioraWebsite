@@ -18,12 +18,6 @@ export const STORE_LINKS = {
   googlePlay: process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL || "https://play.google.com/store/apps/details?id=com.zentra.habiora",
 };
 
-export const WAITLIST_ENDPOINT = process.env.NEXT_PUBLIC_WAITLIST_ENDPOINT || null;
-
-/** The early-access section, and the id of the email field the top bar's button jumps to. */
-export const EARLY_ACCESS_ID = "early-access";
-export const WAITLIST_INPUT_ID = "waitlist-email";
-
 export const NAV_LINKS = [
   { label: "How It Works", href: "#how-it-works" },
   { label: "Features", href: "#features" },

@@ -1,9 +1,4 @@
-"use client";
-
-import { useState } from "react";
-import { ArrowRight, Check, Loader2 } from "lucide-react";
-import { STORE_LINKS, WAITLIST_ENDPOINT, WAITLIST_INPUT_ID } from "@/lib/constants";
-import { buttonClasses } from "./Button";
+import { STORE_LINKS } from "@/lib/constants";
 
 function AppleGlyph({ className }: { className?: string }) {
   return (
@@ -84,77 +79,5 @@ function ComingSoon({ glyph, store }: { glyph: React.ReactNode; store: string })
     >
       <StoreBadge glyph={glyph} kicker="Coming soon to" store={store} />
     </span>
-  );
-}
-
-type Status = "idle" | "sending" | "done" | "error";
-
-/** Early-access sign-up. Posts {email} as JSON to NEXT_PUBLIC_WAITLIST_ENDPOINT. */
-export function WaitlistForm({ className = "" }: { className?: string }) {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<Status>("idle");
-  const [message, setMessage] = useState("");
-
-  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (!WAITLIST_ENDPOINT) {
-      setStatus("error");
-      setMessage("Sign-ups aren't connected yet. Please check back soon.");
-      return;
-    }
-    setStatus("sending");
-    try {
-      const response = await fetch(WAITLIST_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      if (!response.ok) throw new Error(String(response.status));
-      setStatus("done");
-      setMessage("You're on the list. We'll write the day Habiora lands on Android.");
-      setEmail("");
-    } catch {
-      setStatus("error");
-      setMessage("That didn't go through. Please try again in a moment.");
-    }
-  }
-
-  if (status === "done") {
-    return (
-      <p role="status" className={`inline-flex items-center gap-3 rounded-full bg-mint px-5 py-4 font-semibold text-forest ${className}`}>
-        <span className="grid h-7 w-7 place-items-center rounded-full bg-forest text-ivory">
-          <Check className="h-4 w-4" aria-hidden />
-        </span>
-        {message}
-      </p>
-    );
-  }
-
-  return (
-    <form onSubmit={onSubmit} className={className} noValidate={false}>
-      <div className="flex flex-col gap-3 rounded-[1.75rem] border border-line bg-ivory p-2 shadow-soft transition-shadow focus-within:border-leaf focus-within:ring-4 focus-within:ring-sage/50 sm:flex-row sm:rounded-full">
-        <label htmlFor={WAITLIST_INPUT_ID} className="sr-only">
-          Email address
-        </label>
-        <input
-          id={WAITLIST_INPUT_ID}
-          type="email"
-          required
-          autoComplete="email"
-          placeholder="you@example.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="h-12 min-w-0 flex-1 rounded-full bg-transparent px-5 text-base text-ink placeholder:text-muted/70 focus:outline-none focus-visible:outline-none"
-        />
-        <button type="submit" disabled={status === "sending"} className={buttonClasses("primary", "md", "h-12 shrink-0 px-6")}>
-          {status === "sending" ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> : null}
-          Get early access
-          {status !== "sending" && <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />}
-        </button>
-      </div>
-      <p role="status" aria-live="polite" className={`mt-3 min-h-5 px-5 text-sm ${status === "error" ? "text-[#a3542c]" : "text-muted"}`}>
-        {status === "error" ? message : "One email when Habiora lands on Android. Nothing else."}
-      </p>
-    </form>
   );
 }
