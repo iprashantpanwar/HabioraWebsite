@@ -7,6 +7,7 @@ export const SITE = {
   description:
     "A mindful habit tracker where every small step becomes a tree. Plant a habit, show up for it, and watch your own little forest grow.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://habiora.co",
+  email: "hello@habiora.co",
 };
 
 /**
